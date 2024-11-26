@@ -4,21 +4,21 @@ import android.util.Log
 
 class LogInUseCase(private val userRepository: UserRepository) {
 
-    operator fun invoke(username: String, password:String): Boolean {
-
+    operator fun invoke(username: String, password: String): Boolean {
         val user = userRepository.findById(username)
-        if (user == null){
-            Log.d("@dev", "No se encuentra en el sistema, dese de alta antes")
-            return false
-        }else{
-            return true
+        return if (user == null) {
+            val newUser = userRepository.save(User(username, username, password))
+            //Usuario no existente creado
+            true
+        } else {
+            //Usuario existente, no hace nada
+            false
         }
         /* Estrcutura similar pero en Kotlin
 
         userRepository.findById(username)?.let {
-        } ?: Log.d("@dev", "No se encuentra en el sistema, dese de alta antes")
+        }
         return true
          */
-
     }
 }

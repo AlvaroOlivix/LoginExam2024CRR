@@ -1,5 +1,6 @@
 package edu.iesam.loginexam1eval.features.user.presentation
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,9 +18,9 @@ class LogInViewModel(
 
     fun logIn(username: String, password: String) {
 
+        val result = logInUseCase(username, password)
         viewModelScope.launch(Dispatchers.IO) {
-            val response = logInUseCase.invoke(username, password)
-            UiState(isSucess = true)
+
         }
 
     }
