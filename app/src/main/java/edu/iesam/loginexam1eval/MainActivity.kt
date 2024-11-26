@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-
     /**
      * Método de prueba para acceder a los elementos de la vista
      */
@@ -28,6 +27,4 @@ class MainActivity : AppCompatActivity() {
             //Hago algo con los datos
         }
     }
-
-
 }
